@@ -1,54 +1,67 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    font-family: Arial;
-  }
-  
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.title-header {
+  background: #fff;
+  position: relative;
+  width: 100%;
+  height: 210px;
+  z-index: 2;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8px;
+  padding: 0 4px;
+}
+
+@media screen and (min-width: 801px) {
   .row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    padding: 0 4px;
-    margin-top: 180px; /* space for the absolute title */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  
-  /* Create four equal columns that sits next to each other */
-  .column {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-  }
-  
-  .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-    width: 100%;
-  }
-  
-  /* Two columns on tablets and phones */
-  @media screen and (max-width: 800px) {
-    .column {
-      -ms-flex: 50%;
-      flex: 50%;
-      max-width: 50%;
-    }
-    .titleContainer {
-      width: 200px;
-    }
-  }
-  
-  p {
-      text-align:center;
-      margin-top:5px;
+}
+
+.column {
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .titleContainer {
+    width: 200px;
   }
 
-  video {
-    width: 100%;
-    height: auto;
-    padding: 8px 0 0 0;
+  .title-header {
+    height: 190px;
   }
+}
+
+p {
+  text-align: center;
+  margin-top: 5px;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 8px;
+  background: #111;
+}
