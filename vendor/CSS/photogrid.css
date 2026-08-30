@@ -22,6 +22,9 @@ body {
   column-count: 5;
   column-gap: 8px;
   padding: 0 4px;
+  /* Safari adds a text-line strut at the top of columns 2+. Kill it. */
+  font-size: 0;
+  line-height: 0;
 }
 
 .row > img,
