@@ -16,24 +16,33 @@ body {
   z-index: 2;
 }
 
-/* Real grid so iOS WebKit can't offset later columns. ~160px min, max 5. */
+/* Independent stacked columns (masonry). JS picks 2–5 columns from screen width. */
 .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, max(160px, 20%)), 1fr));
+  display: flex;
   gap: 8px;
   padding: 0 4px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .row > img,
 .row > video {
+  display: none;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+}
+
+.column img,
+.column video {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0;
+  margin: 0 0 8px;
 }
 
-.row > video {
+.column video {
   background: #111;
 }
 
