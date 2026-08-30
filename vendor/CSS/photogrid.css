@@ -16,15 +16,13 @@ body {
   z-index: 2;
 }
 
-/* Auto number of columns: ~160px min each, max 5. Phones get 2, wide screens fill up. */
+/* Real grid so iOS WebKit can't offset later columns. ~160px min, max 5. */
 .row {
-  column-width: 160px;
-  column-count: 5;
-  column-gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, max(160px, 20%)), 1fr));
+  gap: 8px;
   padding: 0 4px;
-  /* Safari adds a text-line strut at the top of columns 2+. Kill it. */
-  font-size: 0;
-  line-height: 0;
+  align-items: start;
 }
 
 .row > img,
@@ -32,10 +30,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 0 8px;
-  break-inside: avoid;
-  page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
+  margin: 0;
 }
 
 .row > video {
