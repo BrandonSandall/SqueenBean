@@ -16,23 +16,26 @@ body {
   z-index: 2;
 }
 
+/* CSS columns, not a 2-col grid of 4 wrappers (that wrapped into a 2x2 and left holes). */
 .row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-count: 2;
   column-gap: 8px;
   padding: 0 4px;
 }
 
 @media screen and (min-width: 801px) {
   .row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-count: 4;
   }
 }
 
 .column {
-  min-width: 0;
   width: 100%;
-  padding: 0;
+  display: inline-block;
+  vertical-align: top;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
 }
 
 .column img {
@@ -41,6 +44,14 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.column video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 8px;
+  background: #111;
 }
 
 @media screen and (max-width: 800px) {
@@ -56,12 +67,4 @@ body {
 p {
   text-align: center;
   margin-top: 5px;
-}
-
-video {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 8px;
-  background: #111;
 }
